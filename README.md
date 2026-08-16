@@ -1,12 +1,28 @@
-# Deepfake Detection System
+**# Deepfake Detection System
 
-A deep learning based web application for detecting whether an image is REAL or FAKE.
+A deep learning based web application for detecting whether an uploaded image is **REAL** or **FAKE**.
+
+This project uses a **MobileNetV2-based deep learning model** with transfer learning. The trained model is integrated into a **Flask web application**, allowing users to upload an image and receive a prediction with a confidence score.
+
+---
 
 ## Project Overview
 
-This project uses a deep learning model based on MobileNetV2 to classify images as real or deepfake.
+Deepfake images are digitally manipulated images that can be difficult to distinguish from authentic images.
 
-The trained model is integrated with a Flask web application where users can upload an image and receive a prediction with a confidence score.
+This project aims to detect whether an input image is real or fake using a deep learning image classification model.
+
+The system contains:
+
+- Dataset preprocessing
+- Deep learning model training
+- Model evaluation
+- Flask web application
+- Image upload functionality
+- REAL/FAKE prediction
+- Confidence score
+
+---
 
 ## Technologies Used
 
@@ -14,84 +30,43 @@ The trained model is integrated with a Flask web application where users can upl
 - TensorFlow
 - Keras
 - MobileNetV2
-- OpenCV
+- Flask
 - NumPy
+- Pillow
+- OpenCV
 - Pandas
 - Scikit-learn
-- Pillow
-- Flask
-- HTML/CSS
+- HTML
+- CSS
+
+---
 
 ## Dataset
 
-The dataset contains:
+The dataset contains **10,000 images** divided into training, validation, and testing sets.
 
-- 8,000 training images
-- 1,000 validation images
-- 1,000 testing images
+### Dataset Distribution
 
-Each dataset is divided into:
+| Dataset | Fake | Real | Total |
+|---|---:|---:|---:|
+| Training | 4,000 | 4,000 | 8,000 |
+| Validation | 500 | 500 | 1,000 |
+| Testing | 500 | 500 | 1,000 |
+| **Total** | **5,000** | **5,000** | **10,000** |
 
-- Fake
-- Real
-
-The dataset is not included in this repository because of its large size.
-
-## Model
-
-The project uses MobileNetV2 with transfer learning.
-
-Input image size:
-
-224 × 224 pixels
-
-The final layer performs binary classification:
-
-- 0 → Fake
-- 1 → Real
-
-## Model Performance
-
-Test results:
-
-| Metric | Score |
-|---|---:|
-| Accuracy | 68.50% |
-| Precision | 79.37% |
-| Recall | 50.00% |
-| F1-Score | 61.35% |
-
-## Web Application
-
-The Flask application allows users to:
-
-1. Upload an image.
-2. Process the image.
-3. Run the trained deep learning model.
-4. Display REAL or FAKE prediction.
-5. Display the confidence percentage.
-
-## Project Structure
+The dataset is organized into:
 
 ```text
-DEEPFAKE_DETECTION_SYSTEM/
-│
-├── model/
-│   └── train_model.py
-│
-├── preprocessing/
-│   ├── data_loader.py
-│   └── inspect_dataset.py
-│
-├── testing/
-│   └── test_model.py
-│
-├── templates/
-│   └── index.html
-│
-├── static/
-│
-├── app.py
-├── requirements.txt
-├── .gitignore
-└── README.md
+dataset/
+└── 8020/
+    ├── train/
+    │   ├── fake/
+    │   └── real/
+    │
+    ├── valid/
+    │   ├── fake/
+    │   └── real/
+    │
+    └── test/
+        ├── fake/
+        └── real/**
